@@ -1,25 +1,24 @@
 package lesson_26.boxes;
 
-public class SuperBox {
-    private int value;
+public class SuperBoxDouble {
+    private double value;
 
-    public SuperBox(int value) {
+    public SuperBoxDouble(double value) {
         this.value = value;
     }
 
-    public int getValue() {
+    public double getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(double value) {
         this.value = value;
     }
 
     @Override
     public String toString() {
-        return "SuperBox{" +
+        return "SuperBoxDouble{" +
                 "value=" + value +
                 '}';
     }
 }
-

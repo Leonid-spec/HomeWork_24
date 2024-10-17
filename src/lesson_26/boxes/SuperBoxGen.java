@@ -1,17 +1,19 @@
 package lesson_26.boxes;
 
-public class SuperBox {
-    private int value;
+public class SuperBoxGen <T> {
+    private T value;
 
-    public SuperBox(int value) {
+
+
+    public SuperBoxGen(T value) {
         this.value = value;
     }
 
-    public int getValue() {
+    public T getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(T value) {
         this.value = value;
     }
 
@@ -22,4 +24,3 @@ public class SuperBox {
                 '}';
     }
 }
-

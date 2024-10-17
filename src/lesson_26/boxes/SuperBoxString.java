@@ -21,4 +21,5 @@ public class SuperBoxString {
                 "value='" + value + '\'' +
                 '}';
     }
+
 }
