@@ -1,5 +1,7 @@
 package homeWork_26;
 
+import lists.MyArrayList;
+
 public class MainClass {
     public static void main(String[] args) {
         Pair<String> pair = new Pair<>("Hello", "World");
@@ -8,7 +10,8 @@ public class MainClass {
 
         pair.swap();
         System.out.println(pair.getFirst()); // Вывод: World
-        System.out.println(pair.getSecond());
+        System.out.println(pair.getSecond()); // Вывод: Hello
+//
     }
 
 }

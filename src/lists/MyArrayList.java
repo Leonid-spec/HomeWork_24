@@ -1,13 +1,21 @@
 package lists;
 
+import java.lang.reflect.Array;
 
-public class MyArrayList <T> {
+/**
+ * @author Sergey Bugaenko
+ * {@code @date} 01.10.2024
+ */
+
+public class MyArrayList <T> implements MyList <T>{
     private T[] array;
     private int cursor; // присвоено значение по умолчанию = 0;
 
     @SuppressWarnings("unchecked") // Подавляю предупреждение компилятора о непроверяемом приведении типа
     public MyArrayList() {
         array = (T[]) new Object[10];
+
+
     }
 
     @SuppressWarnings("unchecked")
@@ -16,12 +24,13 @@ public class MyArrayList <T> {
             this.array = (T[]) new Object[10];
         } else {
             this.array = (T[]) new Object[array.length * 2];
-            add(array);
+            addAll(array);
         }
     }
 
     // Добавление в массив одного элемента
     public void add(T value) {
+
 
         // Проверка. Есть ли вообще свободное место во внутреннем массиве
         // Если места нет - нужно добавить место
@@ -34,8 +43,8 @@ public class MyArrayList <T> {
         cursor++;
     }
 
-
-    public void add(T... numbers) {
+    @Override
+    public void addAll(T... numbers) {
         // с numbers я могу обращаться точно также, как со ссылкой на массив int
         // System.out.println("Приняли несколько интов. А именно: " + numbers.length);
         // System.out.println("Есть индекс у каждого инта, как в массиве. По индексом 0: " + numbers[0]);
@@ -123,6 +132,12 @@ public class MyArrayList <T> {
         }
     }
 
+    @Override
+    public boolean contains(T value) {
+        // если больше или равно 0 -то тру, если меньше то не найден фолс.
+        return indexOf(value) >= 0;
+    }
+
     // Поиск по значению. Первое вхождение
     // {1, 100, 5, 5, 100} -> 100 метод вернет индекс первого найдено вхождения = 1
     public int indexOf(T value) {
@@ -141,15 +156,33 @@ public class MyArrayList <T> {
 
         for (int i = cursor - 1; i >= 0; i--) {
             if (array[i].equals(value)) {
-                return i;
+               return i;
             }
         }
 
         return -1;
     }
 
+
+    // перезаписывает значение по указанному индексу
+    @Override
+    public void set(int index, T value) {
+        if (index >= 0 && index < cursor) {
+            //если индекс правильный присваиваем новое значение
+            array[index] = value;
+        }
+        // если нет, ничего не делаем
+    }
+    // является ли коллекция пустой
+    @Override
+    public boolean isEmpty() {
+        //если курсор равен 0, значит у нас нет элементов во внутреннем массиве
+        return cursor == 0;
+    }
+
     // Удаление элемента по значению
-    public boolean removeByValue(T value) {
+    @Override
+    public boolean remove(T value) {
         /*
         1. Есть ли элемент с таким значение в массиве - indexOf
         2. Если элемента нет - вернуть false
@@ -161,9 +194,45 @@ public class MyArrayList <T> {
         remove(index);
         return true;
     }
+//
+@SuppressWarnings("unchecked")
+    @Override
+    public T[] toArray() {
+        /*
+        Создать новый массив размерностью курсор.
+        Пройтись по нашему внутреннему массиву и скопировать все элементы.
+        Вернуть ссылку на новый массив
+         */
+        // взять какой то обьект из моего массива и узнать на стадии выполнения программы тип этого обьекта.
+        // и потом могу создать массив этого типа данных
+
+   //     if (cursor == 0) return (T[]) new Object[0];
+   //ошибка рантайм
 
 
+        if (cursor == 0) return null;
 
+        Class<T> clazz = (Class<T>) array[0].getClass();
+        System.out.println("clazz: " + clazz);
+
+        // создаю массив того же типа как и 0 элемент
+        T[] result = (T[]) Array.newInstance(clazz, cursor);
+  //
+        for (int i = 0; i < result.length; i++) {
+            result[i] = array[i];
+        }
+
+
+        return result;
+
+
+//        T[] result = (T[]) new Object[cursor];
+//        for (int i = 0; i < result.length; i++) {
+//            result[i] = array[i];
+//        }
+
+
+    }
 }
 
 /*
@@ -180,4 +249,3 @@ public class MyArrayList <T> {
 11. Написать метод lastIndexOf(int value) возвращающий индекс последнего вхождения значения в массиве.
 
  */
-

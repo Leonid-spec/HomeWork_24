@@ -1,12 +1,10 @@
 package homeWork_26.optional;
 
-import lists.MyArrayList;
-
 import java.util.ArrayList;
 
 
 public class Main {
-    public static <T, U> void printTwoLists(ArrayList<T> list1, ArrayList<U> list2) {
+    public static <T, U> void printTwoLists(MyArrayList<T> list1, ArrayList<U> list2) {
         System.out.println("Первый список:");
         for (T element : list1) {
             System.out.println(element);
@@ -19,6 +17,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
+
         ArrayList<Integer> intList = new ArrayList<>();
         intList.add(1);
         intList.add(2);
@@ -29,8 +28,11 @@ public class Main {
         strList.add("B");
         strList.add("C");
 
-        printTwoLists(intList, strList);
+//        printTwoLists(intList, strList);
+
     }
+
+
 }
 
 
