@@ -7,7 +7,7 @@ public class PersonApp {
             Person person = new Person("KKKKK@jjjj.ll", "ikjo!olOlkj!");
 
             // Установка нового email и пароля
-            person.setEmail("llk@kkf.fj");
+            person.setEmail("llk@hbkf.fj");
             person.setPassword("!!flakdKK3");
 
             // Вывод информации об объекте Person

@@ -46,7 +46,7 @@ private boolean isEmailValid(String email){
         return false;
     }
     // 5. До собаки должен быть хотя бы один символ
-    if (indexAT <1){
+    if (indexAT == 0){
         return false;
     }
     // 5. До собаки должен быть хотя бы один символ
@@ -74,7 +74,7 @@ private boolean isEmailValid(String email){
         boolean minOneDigit = password.matches(".*[0-9].*");
         if (!minOneDigit) return false;
         boolean minOneSmallChar = password.matches(".*[a-z].*");
-        if (!minOneDigit) return false;
+        if (!minOneSmallChar) return false;
         boolean minOneBigChar = password.matches(".*[A-Z].*");
         if (!minOneBigChar) return false;
         boolean minOneSpecSym = password.matches(".*[!%$@&*()[.,-]].*");
