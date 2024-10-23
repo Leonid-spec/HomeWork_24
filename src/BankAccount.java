@@ -10,9 +10,10 @@ public class BankAccount {
         float DevkB = 62.71f;
         int Strom = 68;
         float Garantie = 10.50f;
+        float fuell = 60f;
         float sum = TelephoneCredit + TelephonOlga + TelephonLeonid +
                 ParkPlatze + DevkB + DevkS + AppartmentRent +
-                NetFlix + Strom + Garantie;
+                NetFlix + Strom + Garantie + fuell;
 
         float Incom = 1455.68f;
         int IncomS = 150;
