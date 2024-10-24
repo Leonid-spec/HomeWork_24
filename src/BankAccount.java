@@ -25,11 +25,11 @@ public class BankAccount {
 
         System.out.println("Вход денег\n " + sumIncom + " \nОбязательные расходы\n " + sum + " \nОстаток\n " + result);
 
-        System.out.println("Дополнительные расходы");
+        System.out.println("остаток после покупки продуктов");
 
-        float allout = 500f;
-
-        System.out.println(result - allout);
+        float essen = 200f;
+        int freetOuSE = (int)result - (int) essen;
+        System.out.println(freetOuSE);
 
 
 
