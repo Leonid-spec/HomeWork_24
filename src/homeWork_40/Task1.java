@@ -1,4 +1,4 @@
-package homeWork40;
+package homeWork_40;
 
 import java.util.*;
 
