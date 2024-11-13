@@ -26,7 +26,7 @@ public class Cat {
     }
 
     public String getName() {
-        System.out.println("call getName " + name);
+//        System.out.println("call getName " + name);
         return name;
     }
 
@@ -49,4 +49,5 @@ public class Cat {
     public void setColor(String color) {
         this.color = color;
     }
+
 }
