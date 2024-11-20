@@ -1,6 +1,13 @@
-package lesson_45.validator;
+package homeWork_45.validator;
 
-public class EmailValidator {
+/**
+ * @author Sergey Bugaenko
+ * {@code @date} 13.11.2024
+ */
+
+public class UserValidator {
+
+
     // throw - Ключевое слово используемое для явного выброса исключения (создание объекта исключения)
 
     public static void isEmailValid(String email) throws EmailValidateException {
@@ -56,15 +63,12 @@ public class EmailValidator {
 
 
         // Все проверки пройдены. email подходит.
-
-
     }
 
+    public static void isPasswordValid(String password)  throws PasswordValidateException {
 
-    public static void isPasswordValid(String password) throws PasswordValidatorException {
         if (password == null || password.length() < 8) {
-            //System.out.println("Password should be at least 8 characters");
-            throw new PasswordValidatorException("Password should be at least 8 characters");
+            throw new PasswordValidateException("Password should be at least 8 characters");
         }
 
         boolean isDigit = false;
@@ -72,8 +76,7 @@ public class EmailValidator {
         boolean isLowerCase = false;
         boolean isSpecialSymbol = false;
 
-        // альтернативный способ объявление переменных
-        boolean[] result = new boolean[4]; // false, false, false, false
+
 
         String symbols = "!%$@&*()[].,-";
 
@@ -81,32 +84,24 @@ public class EmailValidator {
         for (int i = 0; i < password.length(); i++) {
             char ch = password.charAt(i);
 
-            if (Character.isDigit(ch)) isDigit = true; // res[0] = true
-            if (Character.isUpperCase(ch)) isUpperCase = true; // res[1] = true
-            if (Character.isLowerCase(ch)) isLowerCase = true; //  res[2] = true
+            if (Character.isDigit(ch)) isDigit = true;
+            if (Character.isUpperCase(ch)) isUpperCase = true;
+            if (Character.isLowerCase(ch)) isLowerCase = true; //
             if (symbols.indexOf(ch) >= 0) isSpecialSymbol = true;
-            // if (symbols.contains(String.valueOf(ch))) isSpecialSymbol = true;
 
         }
 
-      //  System.out.printf("%s | %s | %s | %s\n", isDigit, isUpperCase, isLowerCase, isSpecialSymbol);
+       System.out.printf("%s | %s | %s | %s\n", isDigit, isUpperCase, isLowerCase, isSpecialSymbol);
 
-        if (!isDigit) {
-            throw new PasswordValidatorException("В пароле нет ни одной цифры");
-        }
+        if (!isDigit) throw new PasswordValidateException("should be a digit in password");
+        if (!isLowerCase) throw new PasswordValidateException("should be a lower case letter in password");
+        if (!isUpperCase) throw new PasswordValidateException("should be a upper case letter in password");
+        if (!isSpecialSymbol) throw new PasswordValidateException("should be a special symbol in password");
 
-        if(!isUpperCase){
-            throw new PasswordValidatorException("В пароле отсутствует заглавная буква");
-        }
-        if(!isLowerCase){
-            throw new PasswordValidatorException("В пароле отсутствует маленькая буква");
-        }
-        if(!isSpecialSymbol){
-            throw new PasswordValidatorException("В пароле отсутствует хотя бы один специальный символ !%$@&*()[].,-");
-        }
 
         // Если хотя бы в одной переменной останется значение false, то весь пароль НЕ будет признан валидным = (признан не валидным)
-       // return isDigit && isUpperCase && isLowerCase && isSpecialSymbol;
+//        return isDigit && isUpperCase && isLowerCase && isSpecialSymbol;
 
     }
+
 }

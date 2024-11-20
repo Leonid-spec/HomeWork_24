@@ -1,4 +1,4 @@
-package lesson_22.staticPoly.animals;
+package lesson_22.staticPoly;
 
 public class Test {
 
