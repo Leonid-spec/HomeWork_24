@@ -1,9 +1,10 @@
 package layers.repository;
 
-import model.Role;
-import model.User;
-import utils.MyArrayList;
-import utils.MyList;
+import layers.model.Role;
+import layers.model.User;
+import layers.utils.MyArrayList;
+import layers.utils.MyList;
+
 
 import java.util.concurrent.atomic.AtomicInteger;
 

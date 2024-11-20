@@ -1,8 +1,9 @@
 package layers.repository;
 
-import model.Car;
-import utils.MyArrayList;
-import utils.MyList;
+import layers.model.Car;
+import layers.utils.MyArrayList;
+import layers.utils.MyList;
+
 
 import java.util.concurrent.atomic.AtomicInteger;
 

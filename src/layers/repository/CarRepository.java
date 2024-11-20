@@ -1,7 +1,8 @@
 package layers.repository;
 
-import model.Car;
-import utils.MyList;
+import layers.model.Car;
+import layers.utils.MyList;
+
 
 /*
 CRUD - операции

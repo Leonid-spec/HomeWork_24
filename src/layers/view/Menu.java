@@ -1,7 +1,8 @@
 package layers.view;
 
-import model.User;
-import service.MainService;
+import layers.model.User;
+import layers.service.MainService;
+
 
 import java.util.Scanner;
 

@@ -1,11 +1,12 @@
 package layers.service;
 
-import model.Car;
-import model.Role;
-import model.User;
-import repository.CarRepository;
-import repository.UserRepository;
-import utils.MyList;
+import layers.model.Car;
+import layers.model.Role;
+import layers.model.User;
+import layers.repository.CarRepository;
+import layers.repository.UserRepository;
+import layers.utils.MyList;
+
 
 public class MainServiceImpl implements MainService {
 

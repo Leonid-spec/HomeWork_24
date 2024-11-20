@@ -1,8 +1,9 @@
 package layers.service;
 
-import model.Car;
-import model.User;
-import utils.MyList;
+import layers.model.Car;
+import layers.model.User;
+import layers.utils.MyList;
+
 
 public interface MainService {
 
