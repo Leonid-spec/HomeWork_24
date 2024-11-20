@@ -1,4 +1,4 @@
-package lesson_22.staticPoly;
+package lesson_22;
 
 public class ZooApp {
 

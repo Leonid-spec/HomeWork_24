@@ -1,4 +1,4 @@
-package lesson_22.staticPoly;
+package lesson_22;
 
 public class Calculator {
     public static int add(int a, int b){
